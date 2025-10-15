@@ -36,8 +36,8 @@ export default function App() {
     { id: "1", name: "Siya", age: 25, favouritecolour: "Red" },
     { id: "2", name: "Caryn", age: 30, favouritecolour: "Blue" },
     { id: "3", name: "Jaco", age: 22, favouritecolour: "Green" },
-    { id: "4", name: "Mihle", age: 28, favouritecolour: "Yellow" },
-    { id: "5", name: "Koosie", age: 12, favouritecolour: "Purple" },
+    { id: "4", name: "Mihle", age: 28, favouritecolour: "Yellow"},
+    { id: "5", name: "Koosie", age: 12, favouritecolour: "Purple"},
   ]);
 
   // State for input fields
@@ -72,17 +72,18 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>👋 My Dynamic FlatList💕💕💕💕💕</Text>
+      <Text style={styles.title}>My favourite list 😍😍😍!</Text>
 
       {/* Input fields */}
       <View style={styles.inputContainer}>
+         <Text>Name:</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter name"
           value={newName}
           onChangeText={setNewName}
         />
-
+         <Text>Age:</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter age"
@@ -90,14 +91,19 @@ export default function App() {
           onChangeText={setNewAge}
           keyboardType="numeric"
         />
-
+        
+         <Text>Color:</Text>
         <TextInput
           style={styles.input}
           placeholder="Enter favourite colour"
           value={newColour}
           onChangeText={setNewColour}
         />
+
+        <View style={styles.deleteButt}>
         <Button title="Add User" onPress={addUser} />
+         </View>
+
       </View>
       
      
@@ -122,7 +128,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "pink",
     paddingTop: 50,
     paddingHorizontal: 20,
   },
@@ -149,11 +155,14 @@ const styles = StyleSheet.create({
     padding: 15,
     marginVertical: 8,
     borderRadius: 8,
+    borderWidth: 2,
+    borderColor: "red"
   },
 
   name: {
     fontSize: 18,
     fontWeight: "600",
+    color: "blue"
   },
 
   age: {
@@ -176,8 +185,10 @@ const styles = StyleSheet.create({
   btnText: {
    color: "white",
    fontWeight: "bold",
+  },
+  deleteButt:{
+    backgroundColor: "green"
   }
-
 });
 
 
