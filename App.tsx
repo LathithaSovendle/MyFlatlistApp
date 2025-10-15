@@ -15,16 +15,15 @@ const UserItem = ({
   age,
   favouritecolour,
   onDelete
-}: {
-  name: string;
-  age: number;
-  favouritecolour: string;
-}) => (
+
+}) => ( 
+
   <View style={styles.item}>
     <Text style={styles.name}>Name: {name}</Text>
     <Text style={styles.age}>Age: {age}</Text>
     <Text style={styles.color}>Favourite Colour: {favouritecolour}</Text>
 
+{/*The custom delete button*/}
     <TouchableOpacity style={styles.deleteButton} onPress={onDelete}> 
       <Text style={styles.btnText}>Delete</Text>
     </TouchableOpacity>
@@ -55,11 +54,8 @@ export default function App() {
       age: parseInt(newAge),
       favouritecolour: newColour,
     };
-//when we want tol delete we use the filter function
-    const deleteUser = (id) = {
-      setUsers(users.filter(user => user.id !== id))
-    }
-    
+
+
     
 
     setUsers([...users, newUser]); // Adds a new user to array
@@ -67,7 +63,12 @@ export default function App() {
     setNewAge("");
     setNewColour("");
 
+ 
+
   };
+     //when we want tol delete we use the filter function
+    const deleteUser = (id) => {
+      setUsers(users.filter(user => user.id !== id))}
 
   return (
     <View style={styles.container}>
@@ -96,14 +97,6 @@ export default function App() {
           value={newColour}
           onChangeText={setNewColour}
         />
-          <TextInput
-          style={styles.input}
-          placeholder="Enter favourite colour"
-          value={newColour}
-          onChangeText={setNewColour}
-        />
-        
-
         <Button title="Add User" onPress={addUser} />
       </View>
       
@@ -118,7 +111,7 @@ export default function App() {
             name={item.name}
             age={item.age}
             favouritecolour={item.favouritecolour}
-            onDelete ={() => deleteUser(item.id)}
+            onDelete={() => deleteUser(item.id)}
           />
         )}
       />
@@ -152,7 +145,7 @@ const styles = StyleSheet.create({
   },
 
   item: {
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "#eecfe7ff",
     padding: 15,
     marginVertical: 8,
     borderRadius: 8,
